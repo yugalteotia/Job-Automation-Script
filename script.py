@@ -2,10 +2,11 @@ import csv
 import requests
 import pyperclip
 import sys
+import config
 
-API_URL = 'http://127.0.0.1:5000/api/pmsStayRaw/unsetEmptyOrNullFields'  # Use Actual URL instead
-BEARER_TOKEN = 'test_mock_token'  # Use Actual bearer token instead
-CSV_FILE_PATH = 'C:/Users/yuteot/OneDrive - SAS/Desktop/optimizePmsStayRaw script/todaysProperties.csv'
+API_URL = f'{config.API_URL}/pmsStayRaw/unsetEmptyOrNullFields'
+BEARER_TOKEN = config.BEARER_TOKEN
+CSV_FILE_PATH = config.CSV_FILE_PATH
 MAX_REQUESTS = 10
 
 def send_request(property_id, property_code):
