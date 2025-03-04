@@ -33,7 +33,6 @@ def process_csv():
     fetch all property details in a single API call, filter by:
       - status == "ACTIVE"
       - incomingSystem == "MARS"
-      - clientCode == "CRHGROUP"
     and then update the CSV to the new format:
       PropertyCode,PropertyID
     """
@@ -67,13 +66,12 @@ def process_csv():
 
         # Filter properties: only include those that:
         # 1. Have a propertyId present in the CSV.
-        # 2. Meet the conditions: status == "ACTIVE", incomingSystem == "MARS", clientCode == "CRHGROUP".
+        # 2. Meet the conditions: status == "ACTIVE" and incomingSystem == "MARS".
         for prop in all_properties:
             prop_id = str(prop.get("propertyId"))
             if prop_id in property_ids:
                 if (prop.get("status") == "ACTIVE" and 
-                    prop.get("incomingSystem") == "MARS" and 
-                    prop.get("clientCode") == "CRHGROUP"):
+                    prop.get("incomingSystem") == "MARS"):
                     updated_rows.append([prop.get("propertyCode"), prop_id])
 
         if len(updated_rows) == 1:
