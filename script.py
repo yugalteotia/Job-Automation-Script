@@ -7,7 +7,6 @@ import config
 API_URL = f'{config.API_URL}/pmsStayRaw/unsetEmptyOrNullFields'
 BEARER_TOKEN = config.BEARER_TOKEN
 CSV_FILE_PATH = config.CSV_FILE_PATH
-MAX_REQUESTS = 10
 
 def send_request(property_id, property_code):
     try:
